@@ -4,4 +4,33 @@
 
 {% block body %}
     <h1 class="mainTitle">WHOOPSY</h1>
+    {% if app.user %}
+
+        {% for bug in bugs %}
+            <div class="card">
+                <p class="card-title">{{ bug.title }}</p>
+                <img src="{{ bug.imgA }}">
+                <p class="card-body">Description : {{ bug.description }} <br>
+                    Stack : {{ bug.stack }}
+                </p>
+
+                <a href="#" class="card-link text-center">Voir le bug</a>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p class="text-center">Veuillez vous connecter pour accéder à cette page
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </p>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

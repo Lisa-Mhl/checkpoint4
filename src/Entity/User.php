@@ -83,9 +83,15 @@ class User implements UserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Bug::class, mappedBy="author")
+     */
+    private $bugs;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->bugs = new ArrayCollection();
     }
 
     public function __toString()
@@ -282,6 +288,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($article->getAuthor() === $this) {
                 $article->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Bug[]
+     */
+    public function getBugs(): Collection
+    {
+        return $this->bugs;
+    }
+
+    public function addBug(Bug $bug): self
+    {
+        if (!$this->bugs->contains($bug)) {
+            $this->bugs[] = $bug;
+            $bug->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBug(Bug $bug): self
+    {
+        if ($this->bugs->contains($bug)) {
+            $this->bugs->removeElement($bug);
+            // set the owning side to null (unless already changed)
+            if ($bug->getAuthor() === $this) {
+                $bug->setAuthor(null);
             }
         }
 

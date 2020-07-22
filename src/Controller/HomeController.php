@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\BugRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,9 +26,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/debug", name="debug")
      */
-    public function debug()
+    public function debug(BugRepository $bugRepository)
     {
-        return $this->render('home/debug.html.twig');
+        return $this->render('home/debug.html.twig',[
+            'bugs' => $bugRepository->findAll(),
+        ]);
     }
 
     /**
