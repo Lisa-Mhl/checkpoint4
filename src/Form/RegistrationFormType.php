@@ -5,9 +5,11 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -43,8 +45,13 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('email')
+           # ->add('roles', ChoiceType::class,[
+            #    'choices' => [
+          #          'ROLE_DEV' => 'Je suis développeur',
+              #      'ROLE_EMPLOYER' => 'Je suis recruteur',
+             # ],
+          #  ])
             ->add('job')
-            ->add('created_at')
         ;
     }
 

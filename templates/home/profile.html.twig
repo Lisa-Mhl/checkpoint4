@@ -3,5 +3,27 @@
 {% block title %}Profile{% endblock %}
 
 {% block body %}
-    <h1>WELCOME</h1>
+    <h1 class="mainTitle">WELCOME</h1>
+    {% if app.user %}
+        <h2 class="username">{{ app.user.username }}</h2>
+        <div class="center">
+            <img class="profilPicture" src="{{ app.user.photo }}">
+        </div>
+    {% else %}
+        <p>Veuillez vous connecter pour accéder à cette page</p>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

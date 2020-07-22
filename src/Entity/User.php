@@ -79,11 +79,6 @@ class User implements UserInterface
     private $portfolio;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
-
-    /**
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="author")
      */
     private $articles;
@@ -258,18 +253,6 @@ class User implements UserInterface
     public function setPortfolio(?string $portfolio): self
     {
         $this->portfolio = $portfolio;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $created_at): self
-    {
-        $this->created_at = $created_at;
 
         return $this;
     }
