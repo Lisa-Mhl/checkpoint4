@@ -22,8 +22,10 @@
             <a target="_blank" href="{{ app.user.portfolio }}">Portfolio</a> <br>
         {% endif %}
         <div class="center">
-            {% if app.user.employed %}
-                <p>En poste : {{ app.user.employed }}</p>
+            {% if app.user.employed == 1 %}
+                <p>En poste : Oui</p>
+                {% elseif app.user.employed == 0 %}
+                    <p>En poste : Non</p>
             {% endif %}
         </div>
         <div class="center">
