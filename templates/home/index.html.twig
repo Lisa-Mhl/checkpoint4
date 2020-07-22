@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1 class="mainTitle">WHADUP</h1>
+
+    {% for article in articles %}
+        <article class="card">
+            <h3 class="card-title text-center">{{ article.title }}</h3>
+            <img class="card-img" src="{{ article.poster }}" alt="article poster">
+            <p class="card-body">Article publié par : {{ article.author }}<br><br>
+                {{ article.description }}</p>
+            <a href="#" class="card-link text-center">Lire l'article</a>
+        </article>
+
+    {% endfor %}
+{% endblock %}
