@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Débug Zone{% endblock %}
+
+{% block body %}
+    {% if app.user %}
+        <h1 class="mainTitle">WHOOPSY</h1>
+        <h4 class="bugTitle text-center"> "{{ bug.title }}" - {{ bug.author }}</h4>
+        <article class="bugContent">{{ bug.content }}</article>
+        {% if bug.imgA %}
+            <img src="{{ bug.imgA }}" alt="Image 1">
+        {% endif %}
+        {% if bug.imgB %}
+            <img src="{{ bug.imgB }}" alt="Image 2">
+        {% endif %}
+        {% if bug.imgC %}
+            <img src="{{ bug.imgC }}" alt="Image 3">
+        {% endif %}
+
+    {% else %}
+        <p class="text-center">Veuillez vous connecter pour accéder à cette page
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </p>
+    {% endif %}
+{% endblock %}

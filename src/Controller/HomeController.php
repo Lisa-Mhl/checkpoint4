@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Bug;
 use App\Repository\ArticleRepository;
 use App\Repository\BugRepository;
+use App\Repository\UserRepository;
+use http\Env\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,13 +31,23 @@ class HomeController extends AbstractController
      */
     public function debug(BugRepository $bugRepository)
     {
-        return $this->render('home/debug.html.twig',[
+        return $this->render('home/debug.html.twig', [
             'bugs' => $bugRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/profil", name="profile")
+     * @Route("/debug/{id}", name="debugdetails")
+     */
+    public function debugDetails(Bug $bug)
+    {
+        return $this->render('home/debugdetails.html.twig', [
+            'bug' => $bug,
+        ]);
+    }
+
+    /**
+     * @Route("/profil/{id}", name="profile")
      */
     public function profile()
     {

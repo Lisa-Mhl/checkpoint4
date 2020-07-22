@@ -19,7 +19,6 @@ class Bug
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="bugs")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
 
@@ -29,7 +28,7 @@ class Bug
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=150)
      */
     private $description;
 
@@ -46,7 +45,7 @@ class Bug
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $mgB;
+    private $imgB;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -54,12 +53,12 @@ class Bug
     private $imgC;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $resolved;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=60)
      */
     private $stack;
 
@@ -128,14 +127,14 @@ class Bug
         return $this;
     }
 
-    public function getMgB(): ?string
+    public function getImgB(): ?string
     {
-        return $this->mgB;
+        return $this->imgB;
     }
 
-    public function setMgB(?string $mgB): self
+    public function setImgB(?string $imgB): self
     {
-        $this->mgB = $mgB;
+        $this->imgB = $imgB;
 
         return $this;
     }
