@@ -14,13 +14,14 @@
     </head>
     <body>
     <nav>
-        {#% if app.user %#}
+        {% if app.user %}
         <a href="/">Accueil</a>
         <a href="{{ path('debug') }}">Débug</a>
         <a href="{{ path('profile') }}">Profil</a>
-        <a href="#">Se déconnecter</a>
-        {#% else %#}
-        <a href="#">Connexion</a>
+        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        {% else %}
+        <a href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
     </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
