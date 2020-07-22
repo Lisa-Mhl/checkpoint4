@@ -4,4 +4,12 @@
 
 {% block body %}
 <h1>WHADUP</h1>
+
+    {% for article in articles %}
+        <img src="{{ article.poster }}" alt="article poster">
+        <p>{{ article.author }}</p>
+        <p>{{ article.title }}</p>
+        <p>{{ article.content }}</p>
+
+    {% endfor %}
 {% endblock %}
