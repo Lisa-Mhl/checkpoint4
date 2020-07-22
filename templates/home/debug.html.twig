@@ -1,20 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Débug{% endblock %}
+{% block title %}Débug Zone{% endblock %}
 
 {% block body %}
     <h1 class="mainTitle">WHOOPSY</h1>
+
     {% if app.user %}
 
+        <a href="{{ path('bug_new') }}">Poster un bug</a>
         {% for bug in bugs %}
             <div class="card">
                 <p class="card-title">{{ bug.title }}</p>
-                <img src="{{ bug.imgA }}">
+                {% if bug.resolved == 1 %}
+                    <img src="https://thumbs.dreamstime.com/b/tampon-en-caoutchouc-r%C3%A9solu-par-probl%C3%A8me-87548209.jpg"
+                         alt="résolu">
+                {% else %}
+                    <img src="{{ bug.imgA }}">
+                {% endif %}
                 <p class="card-body">Description : {{ bug.description }} <br>
-                    Stack : {{ bug.stack }}
+                    Stack : {{ bug.stack }} <br>
+                    Auteur : {{ bug.author }}
                 </p>
-
-                <a href="#" class="card-link text-center">Voir le bug</a>
+                <a href="{{ path('debugdetails', {'id':bug.id}) }}" class="card-link text-center">Voir le bug</a>
+                {% if app.user is same as (bug.author) %}
+                    {% if bug.resolved == 0 %}
+                    <a href="{{ path('bug_edit', {'id': bug.id}) }}" class="card-link text-center">Passer en résolu</a>
+                        {% endif %}
+                {% endif %}
             </div>
         {% endfor %}
 
@@ -23,14 +35,5 @@
             <a href="{{ path('app_login') }}">Connexion</a>
         </p>
     {% endif %}
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
