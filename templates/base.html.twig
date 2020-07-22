@@ -2,10 +2,23 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="author" content="Lisa Michel">
+        <meta name="description" content="La plateforme des Développeurs">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>{% block title %}Wild Community{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('style.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <nav>
+        {#% if app.user %#}
+        <a href="/">Accueil</a>
+        <a href="{{ path('debug') }}">Débug</a>
+        <a href="{{ path('profile') }}">Profil</a>
+        <a href="#">Se déconnecter</a>
+        {#% else %#}
+        <a href="#">Connexion</a>
+    </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
