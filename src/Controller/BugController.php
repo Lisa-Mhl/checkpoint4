@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Bug;
+use App\Entity\Comment;
+use App\Entity\User;
 use App\Form\BugType;
 use App\Repository\BugRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -83,7 +85,7 @@ class BugController extends AbstractController
      */
     public function delete(Request $request, Bug $bug): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$bug->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $bug->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($bug);
             $entityManager->flush();

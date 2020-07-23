@@ -3,12 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Bug;
+use App\Entity\Comment;
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
 use App\Repository\BugRepository;
+use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
-use http\Env\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class HomeController extends AbstractController
@@ -39,10 +43,24 @@ class HomeController extends AbstractController
     /**
      * @Route("/debug/{id}", name="debugdetails")
      */
-    public function debugDetails(Bug $bug)
+    public function debugDetails(Bug $bug, Request $request, CommentRepository $commentRepository): Response
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $comment->setBug($bug);
+            $user = $this->getUser();
+            $comment->setAuthor($user);
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            return $this->redirectToRoute('debug');
+        }
         return $this->render('home/debugdetails.html.twig', [
             'bug' => $bug,
+            'form' => $form->createView(),
+            'comments' => $commentRepository->findAll(),
         ]);
     }
 
