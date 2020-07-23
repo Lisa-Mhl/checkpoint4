@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Bug;
+use App\Entity\Comment;
 use App\Entity\User;
 use App\Form\BugType;
 use App\Repository\BugRepository;

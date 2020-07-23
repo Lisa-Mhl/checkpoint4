@@ -53,7 +53,7 @@ class HomeController extends AbstractController
             $comment->setBug($bug);
             $user = $this->getUser();
             $comment->setAuthor($user);
-            $entityManager->persist($bug);
+            $entityManager->persist($comment);
             $entityManager->flush();
             return $this->redirectToRoute('debug');
         }

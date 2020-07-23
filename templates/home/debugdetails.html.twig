@@ -21,9 +21,21 @@
         {% for comment in bug.comments %}
             <div class="card">
                 <p class="card-body">{{ comment.author }}<br>
-                {{ comment.comment }}</p>
+                    {{ comment.comment }}</p>
+                {# {% if app.user is same as (comment.author) %}
+                     {% include '/bug/_delete_comment.html.twig' %}
+                 {% endif %}#}
             </div>
         {% endfor %}
+
+        {% if bug.resolved == 0 %}
+            {{ form_start(form) }}
+            {{ form_label(form.comment, 'Poster une solution') }}
+            {{ form_widget(form.comment) }}
+            <button class="btn">{{ button_label|default('Envoyer') }}</button>
+            {{ form_end(form) }}
+        {% endif %}
+
 
     {% else %}
         <p class="text-center">Veuillez vous connecter pour accéder à cette page
