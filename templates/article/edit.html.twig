@@ -1,17 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Article{% endblock %}
+{% block title %}Modifier Article{% endblock %}
 
 {% block body %}
     <h1 class="mainTitle">Modifier mon article</h1>
     {% if app.user is same as (article.author) %}
+        <fieldset class="registerFs">
 
-        {{ include('article/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+            {{ include('article/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-        <a href="{{ path('home') }}">Retour aux articles</a>
+            <a href="{{ path('home') }}">Retour aux articles</a>
 
-        {{ include('article/_delete_form.html.twig') }}
-{% else %}
+            {{ include('article/_delete_form.html.twig') }}
+        </fieldset>
+    {% else %}
         <p>Seuls les auteurs d'un article peuvent le modifier</p>
     {% endif %}
 {% endblock %}

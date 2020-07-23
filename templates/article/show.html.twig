@@ -3,12 +3,12 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1 class="mainTitle">{{ article.title }}</h1>
-    <h3 class="text-center">Publié par {{ article.author }}</h3>
-    <div class="card">
-        <img class="card-img" src="{{ article.poster }}" alt="Illustration article">
-    </div>
-    <article class="card-body">{{ article.content }}</article>
+    <h1 class="mainTitle bold">{{ article.title }}</h1>
+    <h3 class="text-center publishBy">Publié par {{ article.author }}</h3>
+    <div class="card articleCard">
+        <img class="card-img articleImg" src="{{ article.poster }}" alt="Illustration article">
+
+    <article>{{ article.content }}</article>
     {% if article.link %}
         <a href="{{ article.link }}" target="_blank">En savoir plus</a><br>
     {% endif %}
@@ -21,5 +21,5 @@
             <a href="{{ path('article_edit', {'id': article.id}) }}"> Modifier l'article</a>
         {% endif %}
     {% endif %}
-
+    </div>
 {% endblock %}
