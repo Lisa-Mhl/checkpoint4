@@ -8,6 +8,9 @@ a:hover {
     color: #5eb5e0;
 }
 
+.top05{
+    margin-top: 0.5em;
+}
 
 .bold {
     font-weight: bolder;
@@ -330,6 +333,11 @@ h3 {
         border-color: #b2b1b3;
         color: white;
         width: 12%;
+        margin-top: 1em;
+    }
+
+    .articleCtn {
+        margin-top: 5em;
     }
 
     .row {
@@ -345,5 +353,23 @@ h3 {
         height: 350px;
     }
 
+    .formFs {
+        padding-top: 2rem;
+        margin: auto;
+        width: 50%;
+    }
+
+    .formContent {
+        height: 500px;
+    }
+
+    .articleDetCard {
+        margin-top: 2rem;
+        width: 50%;
+    }
+
+    form{
+        color: #5eb5e0;
+    }
 
 }
