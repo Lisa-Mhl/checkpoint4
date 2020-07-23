@@ -64,7 +64,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/profil/{id}", name="profile")
      */

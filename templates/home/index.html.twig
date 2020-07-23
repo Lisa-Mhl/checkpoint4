@@ -4,14 +4,16 @@
 
 {% block body %}
     <h1 class="mainTitle">WHADUP</h1>
-
+    {%  if app.user %}
+        <a href="{{ path('article_new') }}">Publier un article</a>
+    {% endif %}
     {% for article in articles %}
         <article class="card">
             <h3 class="card-title text-center">{{ article.title }}</h3>
             <img class="card-img" src="{{ article.poster }}" alt="article poster">
             <p class="card-body">Article publié par : {{ article.author }}<br><br>
                 {{ article.description }}</p>
-            <a href="#" class="card-link text-center">Lire l'article</a>
+            <a href="{{ path('article_show', {'id':article.id}) }}" class="card-link text-center">Lire l'article</a>
         </article>
 
     {% endfor %}
