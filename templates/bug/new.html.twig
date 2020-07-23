@@ -28,7 +28,7 @@
             {{ form_widget(form.imgC) }}
             {{ form_label(form.imgC, 'Stack') }}
             {{ form_widget(form.stack) }}
-            <button class="btn">{{ button_label|default('Save') }}</button>
+            <button class="btn">{{ button_label|default('Publier') }}</button>
         </fieldset>
         {{ form_end(form) }}
     {% else %}
@@ -36,5 +36,8 @@
             <a href="{{ path('app_login') }}">Connexion</a>
         </p>
     {% endif %}
+    <div class="center">
+        <a href="{{ path('debug') }}">Retour</a>
+    </div>
 
 {% endblock %}

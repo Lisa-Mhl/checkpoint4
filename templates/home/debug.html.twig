@@ -1,43 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Débug Zone{% endblock %}
+{% block title %}Debug Zone{% endblock %}
 
 {% block body %}
     <h1 class="mainTitle">WHOOPSY</h1>
-
-    {% if app.user %}
-
-        <a href="{{ path('bug_new') }}">Poster un bug</a><br>
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('bug_index') }}">Index des bugs</a>
-        {% endif %}
-        {% for bug in bugs %}
-            <div class="card">
-                <p class="card-title">{{ bug.title }}</p>
-                {% if bug.resolved == 1 %}
-                    <img src="https://thumbs.dreamstime.com/b/tampon-en-caoutchouc-r%C3%A9solu-par-probl%C3%A8me-87548209.jpg"
-                         alt="résolu">
-                {% else %}
-                    <img src="{{ bug.imgA }}">
-                {% endif %}
-                <p class="card-body">Description : {{ bug.description }} <br>
-                    Stack : {{ bug.stack }} <br>
-                    Auteur : {{ bug.author }}
-                </p>
-                <a href="{{ path('debugdetails', {'id':bug.id}) }}" class="card-link text-center">Voir le bug</a>
-                {% if app.user is same as (bug.author) %}
-                    {% if bug.resolved == 0 %}
-                        <a href="{{ path('bug_edit', {'id': bug.id}) }}" class="card-link text-center">Passer en
-                            résolu</a>
+    <div class="bugCtn">
+        {% if app.user %}
+            <a class="publishLink" href="{{ path('bug_new') }}">Poster un bug</a><br>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('bug_index') }}">Index des bugs</a>
+            {% endif %}
+            {% for bug in bugs %}
+                <div class="card articleCard">
+                    <h3 class="card-title text-center bold">{{ bug.title }}</h3>
+                    {% if bug.resolved == 1 %}
+                        <img src="https://thumbs.dreamstime.com/b/tampon-en-caoutchouc-r%C3%A9solu-par-probl%C3%A8me-87548209.jpg"
+                             alt="résolu">
+                    {% else %}
+                        <img src="{{ bug.imgA }}">
                     {% endif %}
-                {% endif %}
-            </div>
-        {% endfor %}
+                    <p class="card-body"><span class="bold">Description :</span> {{ bug.description }} <br>
+                        <span class="bold">Stack :</span> {{ bug.stack }} <br>
+                        <span class="bold">Auteur :</span> {{ bug.author }}
+                    </p>
+                    <div class="center">
+                        <a href="{{ path('debugdetails', {'id':bug.id}) }}" class="card-link">Voir le bug</a>
+                        {% if app.user is same as (bug.author) %}
+                            {% if bug.resolved == 0 %}
+                                <a href="{{ path('bug_edit', {'id': bug.id}) }}" class="card-link">Passer en
+                                    résolu</a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
 
-    {% else %}
-        <p class="text-center">Veuillez vous connecter pour accéder à cette page
-            <a href="{{ path('app_login') }}">Connexion</a>
-        </p>
-    {% endif %}
+            {% endfor %}
+
+        {% else %}
+            <p class="text-center">Veuillez vous connecter pour accéder à cette page
+                <a href="{{ path('app_login') }}">Connexion</a>
+            </p>
+        {% endif %}
+
+    </div>
 
 {% endblock %}

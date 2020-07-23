@@ -54,9 +54,9 @@
 <nav class="desktopNav">
     {% if app.user %}
         <a href="/">Accueil</a>
-        <a href="{{ path('debug') }}">Débug</a>
-        <a href="#">Chill</a>
-        <a href="{{ path('profile', {'id':app.user.username}) }}">Profile</a>
+        <a href="{{ path('debug') }}">Débug Zone</a>
+        <a href="#">Chill Zone</a>
+        <a href="{{ path('profile', {'id':app.user.username}) }}">Profil</a>
         <a href="{{ path('app_logout') }}">Se déconnecter</a>
     {% else %}
         <a href="{{ path('app_login') }}">Connexion</a>
