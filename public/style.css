@@ -124,6 +124,14 @@ a {
         font-size: 2rem;
     }
 
+    /* DEBUG */
+
+    /* DEBUG DETAILS */
+    .soluceTitle{
+        text-align: center;
+        padding-top: 1rem;
+    }
+
     /* REGISTER */
     .registerFs {
         padding-top: 2rem;

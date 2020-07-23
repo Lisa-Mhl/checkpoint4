@@ -17,6 +17,14 @@
             <img src="{{ bug.imgC }}" alt="Image 3">
         {% endif %}
 
+        <h3 class="soluceTitle">SOLUCES</h3>
+        {% for comment in bug.comments %}
+            <div class="card">
+                <p class="card-body">{{ comment.author }}<br>
+                {{ comment.comment }}</p>
+            </div>
+        {% endfor %}
+
     {% else %}
         <p class="text-center">Veuillez vous connecter pour accéder à cette page
             <a href="{{ path('app_login') }}">Connexion</a>
