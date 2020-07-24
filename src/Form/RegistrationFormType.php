@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username')
-             ->add('agreeTerms', CheckboxType::class, [
+            ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -45,14 +45,12 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('email')
-           # ->add('roles', ChoiceType::class,[
-            #    'choices' => [
-          #          'ROLE_DEV' => 'Je suis développeur',
-              #      'ROLE_EMPLOYER' => 'Je suis recruteur',
-             # ],
-          #  ])
-            ->add('job')
-        ;
+            ->add('job', ChoiceType::class, [
+                'choices' => [
+                    'ROLE_DEV' => 'Développeur',
+                    'ROLE_EMPLOYER' => 'Recruteur',
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

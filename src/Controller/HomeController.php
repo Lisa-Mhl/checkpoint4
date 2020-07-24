@@ -11,6 +11,7 @@ use App\Repository\BugRepository;
 use App\Repository\CategoryBugRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
+use App\Repository\JobRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -74,6 +75,16 @@ class HomeController extends AbstractController
     public function profile()
     {
         return $this->render('home/profile.html.twig');
+    }
+
+    /**
+     * @Route("/jobs", name="job")
+     */
+    public function job(JobRepository $jobRepository)
+    {
+        return $this->render('home/job.html.twig', [
+            'jobs' => $jobRepository->findAll(),
+        ]);
     }
 
 }

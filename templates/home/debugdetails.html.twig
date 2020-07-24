@@ -29,13 +29,15 @@
         {% endfor %}
 
         {% if bug.resolved == 0 %}
-            <div class="soluceForm">
-                {{ form_start(form) }}
-                {{ form_label(form.comment, 'Poster une solution') }}
-                {{ form_widget(form.comment, {'attr':{'class':'formSoluce'}}) }}
-                <button class="publishLink">{{ button_label|default('Envoyer') }}</button>
-                {{ form_end(form) }}
-            </div>
+            {% if is_granted('ROLE_DEV') %}
+                <div class="soluceForm">
+                    {{ form_start(form) }}
+                    {{ form_label(form.comment, 'Poster une solution') }}
+                    {{ form_widget(form.comment, {'attr':{'class':'formSoluce'}}) }}
+                    <button class="publishLink">{{ button_label|default('Envoyer') }}</button>
+                    {{ form_end(form) }}
+                </div>
+            {% endif %}
         {% endif %}
 
 

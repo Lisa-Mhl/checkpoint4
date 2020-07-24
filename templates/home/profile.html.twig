@@ -23,13 +23,13 @@
             <a target="_blank" href="{{ app.user.portfolio }}">Portfolio</a> <br>
         {% endif %}
         </div>
-        <div class="center">
+        <div class="profileCtn">
             {% if app.user.employed == 1 %}
-                <p>En poste : Oui</p>
+                <p class="text-center">En poste : Oui</p>
                 {% elseif app.user.employed == 0 %}
                     <p>En poste : Non</p>
             {% endif %}
-        </div>
+
         <div class="center">
             {% if app.user.bio %}
                 <p>Bio : {{ app.user.bio }}</p>
@@ -37,8 +37,9 @@
         </div>
         {% if app.user.email %}
             <p>Email : <a href="mailto: {{ app.user.email }}">{{ app.user.email }}</a></p>
-        {% endif %}
 
+        {% endif %}
+        </div>
     {% else %}
         <p class="text-center">Veuillez vous connecter pour accéder à cette page
             <a href="{{ path('app_login') }}">Connexion</a>

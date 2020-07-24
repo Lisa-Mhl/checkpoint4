@@ -36,6 +36,8 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $article->setAuthor($user);
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -89,6 +91,6 @@ class ArticleController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('article_index');
+        return $this->redirectToRoute('home');
     }
 }

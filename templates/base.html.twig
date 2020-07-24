@@ -30,8 +30,8 @@
             <a href="{{ path('debug') }}">
                 <li>Débug Zone</li>
             </a>
-            <a href="#">
-                <li>Chill Zone</li>
+            <a href="{{ path('job') }}">
+                <li>Job Zone</li>
             </a>
             <a href="{{ path('profile', {'id':app.user.username}) }}">
                 <li>Mon Profil</li>
@@ -56,7 +56,7 @@
     {% if app.user %}
         <a href="/">Accueil</a>
         <a href="{{ path('debug') }}">Débug Zone</a>
-        <a href="#">Chill Zone</a>
+        <a href="{{ path('job') }}">Job Zone</a>
         <a href="{{ path('profile', {'id':app.user.username}) }}">Profil</a>
         <a href="{{ path('app_logout') }}">Se déconnecter</a>
     {% else %}
@@ -65,5 +65,18 @@
 </nav>
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
+
 </body>
+<footer>
+    <div class="left">
+        <a class="footerlink" href="{{ path('home') }}">Accueil</a>
+        <a class="footerlink" href="{{ path('app_login') }}">Connexion</a>
+        <a class="footerlink" href="{{ path('app_register') }}">Créer un compte</a>
+    </div>
+    <div class="right">
+        <a class="footerlink" href="mailto:michellisa.75@gmail.com">Contact</a>
+    </div>
+
+
+</footer>
 </html>

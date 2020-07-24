@@ -347,6 +347,7 @@ h3 {
 
     .articleCard {
         width: 700px;
+        margin-bottom: 5em;
     }
 
     .articleImg {
@@ -407,11 +408,64 @@ h3 {
         height: 250px;
     }
 
-    .profileLinks{
+    .profileLinks {
         position: absolute;
         top: 25%;
         left: 25%;
         font-size: 1.2em;
+    }
+
+    .jobCtn {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2rem;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2rem;
+        background-color: whitesmoke;
+        padding: 3em;
+        box-shadow: 0px 5px 15px grey;
+    }
+
+    .left {
+        justify-content: flex-start;
+    }
+
+    .right {
+        position: relative;
+        left: 88%;
+        top: 85%;
+    }
+
+    .footerlink {
+        display: flex;
+        flex-direction: column;
+        color: #222222;
+    }
+
+    .solved{
+        height: 350px;
+    }
+
+    .imgA{
+        height: 350px;
+    }
+
+    .registerFs{
+        padding-top: 12em;
+        padding-bottom: 12em;
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .profileCtn{
+        margin: 2rem auto 10rem;
+        width: 50%;
     }
 
 }

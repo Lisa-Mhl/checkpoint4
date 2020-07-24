@@ -38,6 +38,8 @@ class BugController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $bug->setAuthor($user);
             $entityManager->persist($bug);
             $entityManager->flush();
 
@@ -91,6 +93,6 @@ class BugController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('bug_index');
+        return $this->redirectToRoute('debug');
     }
 }
