@@ -447,4 +447,20 @@ h3 {
         color: #222222;
     }
 
+    .solved{
+        height: 350px;
+    }
+
+    .imgA{
+        height: 350px;
+    }
+
+    .registerFs{
+        padding-top: 12em;
+        padding-bottom: 12em;
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
 }
