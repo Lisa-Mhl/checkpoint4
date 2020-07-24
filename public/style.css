@@ -372,4 +372,14 @@ h3 {
         color: #5eb5e0;
     }
 
+    .bugCtn{
+        margin-top: 2.5em;
+    }
+
+    .categoriesCtn{
+        position: absolute;
+        top: 70px;
+        left: 15px;
+    }
+
 }

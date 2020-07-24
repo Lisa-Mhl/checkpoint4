@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200723072341 extends AbstractMigration
+final class Version20200724002057 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,12 +20,14 @@ final class Version20200723072341 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE comment CHANGE content comment LONGTEXT NOT NULL');
+        $this->addSql('ALTER TABLE bug ADD CONSTRAINT FK_358CBF1412469DE2 FOREIGN KEY (category_id) REFERENCES category (id)');
+        $this->addSql('CREATE INDEX IDX_358CBF1412469DE2 ON bug (category_id)');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE comment CHANGE comment content LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE bug DROP FOREIGN KEY FK_358CBF1412469DE2');
+        $this->addSql('DROP INDEX IDX_358CBF1412469DE2 ON bug');
     }
 }

@@ -69,9 +69,16 @@ class Bug
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="bugs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->bugs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -214,6 +221,45 @@ class Bug
                 $comment->setBug(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getBugs(): Collection
+    {
+        return $this->bugs;
+    }
+
+    public function addBug(self $bug): self
+    {
+        if (!$this->bugs->contains($bug)) {
+            $this->bugs[] = $bug;
+        }
+
+        return $this;
+    }
+
+    public function removeBug(self $bug): self
+    {
+        if ($this->bugs->contains($bug)) {
+            $this->bugs->removeElement($bug);
+            // set the owning side to null (unless already changed)
+        }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
