@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Bug;
+use App\Entity\CategoryBug;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\ArticleRepository;
 use App\Repository\BugRepository;
+use App\Repository\CategoryBugRepository;
+use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,10 +36,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/debug", name="debug")
      */
-    public function debug(BugRepository $bugRepository)
+    public function debug(BugRepository $bugRepository, CategoryRepository $categoryRepository)
     {
         return $this->render('home/debug.html.twig', [
             'bugs' => $bugRepository->findAll(),
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 

@@ -2,10 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta lang="fr">
     <meta name="author" content="Lisa Michel">
     <meta name="description" content="La plateforme des Développeurs">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{% block title %}Wild Community{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Delius&family=Montserrat&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -52,9 +55,9 @@
 <nav class="desktopNav">
     {% if app.user %}
         <a href="/">Accueil</a>
-        <a href="{{ path('debug') }}">Débug</a>
-        <a href="#">Chill</a>
-        <a href="{{ path('profile', {'id':app.user.username}) }}">Profile</a>
+        <a href="{{ path('debug') }}">Débug Zone</a>
+        <a href="#">Chill Zone</a>
+        <a href="{{ path('profile', {'id':app.user.username}) }}">Profil</a>
         <a href="{{ path('app_logout') }}">Se déconnecter</a>
     {% else %}
         <a href="{{ path('app_login') }}">Connexion</a>

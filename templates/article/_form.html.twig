@@ -1,13 +1,15 @@
 {{ form_start(form) }}
- {{ form_label(form.title, 'Titre') }}
+    {{ form_label(form.title, 'Titre') }}
     {{ form_widget(form.title) }}
-    {{ form_label(form.poster, 'Image') }}
+    {{ form_label(form.poster, 'Lien vers image d\'illustration (facultatif)') }}
     {{ form_widget(form.poster) }}
     {{ form_label(form.content, 'Contenu de l\'article') }}
-    {{ form_widget(form.content) }}
+    {{ form_widget(form.content, {'attr':{'class':'formContent'}}) }}
     {{ form_label(form.description, 'Description courte') }}
     {{ form_widget(form.description) }}
-    {{ form_label(form.link, 'Lien externe') }}
+    {{ form_label(form.link, 'Lien externe (facultatif)') }}
     {{ form_widget(form.link) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="center">
+    <button class="publishLink">{{ button_label|default('Publier') }}</button>
+</div>
 {{ form_end(form) }}

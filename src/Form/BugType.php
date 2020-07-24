@@ -14,6 +14,7 @@ class BugType extends AbstractType
         $builder
             ->add('author')
             ->add('resolved')
+            ->add('category')
             ->add('title')
             ->add('description')
             ->add('content')
@@ -21,6 +22,7 @@ class BugType extends AbstractType
             ->add('imgB')
             ->add('imgC')
             ->add('stack')
+
         ;
     }
 

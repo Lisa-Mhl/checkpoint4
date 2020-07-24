@@ -4,17 +4,32 @@
 
 {% block body %}
     <h1 class="mainTitle">WHADUP</h1>
-    {%  if app.user %}
-        <a href="{{ path('article_new') }}">Publier un article</a>
-    {% endif %}
-    {% for article in articles %}
-        <article class="card">
-            <h3 class="card-title text-center">{{ article.title }}</h3>
-            <img class="card-img" src="{{ article.poster }}" alt="article poster">
-            <p class="card-body">Article publié par : {{ article.author }}<br><br>
-                {{ article.description }}</p>
-            <a href="{{ path('article_show', {'id':article.id}) }}" class="card-link text-center">Lire l'article</a>
-        </article>
 
-    {% endfor %}
+    {% if app.user %}
+        <a class="publishLink" href="{{ path('article_new') }}">Publier un article</a>
+    {% endif %}
+    <div class="articleCtn">
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-lg-5 col-md-6 col-sm-7">
+                    <article class="card articleCard">
+                        <h3 class="card-title text-center bold">{{ article.title }}</h3>
+                        {% if article.poster %}
+                            <img class="card-img articleImg" src="{{ article.poster }}" alt="article poster">
+                        {% endif %}
+                        <p class="card-body"><span class="bold">Article publié par : {{ article.author }}</span>
+                            <br><br>
+                            {{ article.description }}</p>
+                        <a href="{{ path('article_show', {'id':article.id}) }}" class="card-link text-center">Lire
+                            l'article
+                        </a>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
 {% endblock %}
+
