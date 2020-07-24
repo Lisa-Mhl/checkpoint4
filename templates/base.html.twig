@@ -65,5 +65,18 @@
 </nav>
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
+
 </body>
+<footer>
+    <div class="left">
+        <a class="footerlink" href="{{ path('home') }}">Accueil</a>
+        <a class="footerlink" href="{{ path('app_login') }}">Connexion</a>
+        <a class="footerlink" href="{{ path('app_register') }}">Créer un compte</a>
+    </div>
+    <div class="right">
+        <a class="footerlink" href="mailto:michellisa.75@gmail.com">Contact</a>
+    </div>
+
+
+</footer>
 </html>

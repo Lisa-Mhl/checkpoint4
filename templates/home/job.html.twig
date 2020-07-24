@@ -10,23 +10,25 @@
             <a class="publishLink" href="{{ path('job_new') }}">Publier une offre</a>
         {% endif %}
         {% for job in jobs %}
-            <h3>{{ job.title }}</h3> {{ job.contract }} chez {{ job.company }}
-            <p>{{ job.description }}</p>
-            {% if job.skills %}
-                <p>Compétences requises : {{ job.skills }}</p>
-            {% endif %}
-            {% if job.experience %}
-                <p>Expérience requise : {{ job.experience }} an(s)</p>
-            {% endif %}
-            <p>{{ job.salary }} € /mois</p>
-
-            {% if is_granted('ROLE_DEV') %}
-                <a target="_blank" href="{{ job.link }}">Postuler</a>
-            {% elseif is_granted('ROLE_EMPLOYER') %}
-                {% if app.user is same as (job.author) %}
-                    {{ include('job/_delete_form.html.twig') }}
+            <div class="jobCtn">
+                <h3 class="card-title">{{ job.title }}</h3> <span class="bold">{{ job.contract }}</span> chez {{ job.company }}
+                <p>{{ job.description }}</p>
+                {% if job.skills %}
+                    <p>Compétences requises : {{ job.skills }}</p>
                 {% endif %}
-            {% endif %}
+                {% if job.experience %}
+                    <p>Expérience requise : {{ job.experience }} an(s)</p>
+                {% endif %}
+                <p>{{ job.salary }} € /mois</p>
+
+                {% if is_granted('ROLE_DEV') %}
+                    <a target="_blank" href="{{ job.link }}">Postuler</a>
+                {% elseif is_granted('ROLE_EMPLOYER') %}
+                    {% if app.user is same as (job.author) %}
+                        {{ include('job/_delete_form.html.twig') }}
+                    {% endif %}
+                {% endif %}
+            </div>
         {% endfor %}
 
     {% else %}
