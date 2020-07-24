@@ -2,6 +2,8 @@
 <fieldset class="formFs">
     {{ form_label(form.title, 'Titre de l\'offre') }}
     {{ form_widget(form.title) }}
+    {{ form_label(form.company, 'Nom de l\'entreprise') }}
+    {{ form_widget(form.company) }}
     {{ form_label(form.description, 'Détails') }}
     {{ form_widget(form.description) }}
     {{ form_label(form.contract, 'Type de contrat') }}
@@ -14,6 +16,8 @@
     {{ form_widget(form.skills) }}
     {{ form_label(form.link, 'Lien vers l\'offre') }}
     {{ form_widget(form.link) }}
+    {{ form_label(form.author, 'Auteur') }} {#CACHER ET SETER PAR DEFAUT #}
+    {{ form_widget(form.author) }}
 <div class="center">
     <button class="publishLink">{{ button_label|default('Publier') }}</button>
 </div>

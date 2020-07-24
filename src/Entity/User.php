@@ -93,11 +93,17 @@ class User implements UserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Job::class, mappedBy="author")
+     */
+    private $jobs;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->bugs = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->jobs = new ArrayCollection();
     }
 
     public function __toString()
@@ -356,6 +362,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($comment->getAuthor() === $this) {
                 $comment->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Job[]
+     */
+    public function getJobs(): Collection
+    {
+        return $this->jobs;
+    }
+
+    public function addJob(Job $job): self
+    {
+        if (!$this->jobs->contains($job)) {
+            $this->jobs[] = $job;
+            $job->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJob(Job $job): self
+    {
+        if ($this->jobs->contains($job)) {
+            $this->jobs->removeElement($job);
+            // set the owning side to null (unless already changed)
+            if ($job->getAuthor() === $this) {
+                $job->setAuthor(null);
             }
         }
 

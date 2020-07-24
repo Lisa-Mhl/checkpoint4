@@ -9,6 +9,8 @@
     {{ form_widget(form.description) }}
     {{ form_label(form.link, 'Lien externe (facultatif)') }}
     {{ form_widget(form.link) }}
+    {{ form_label(form.author, 'Auteur') }} {#cacher auteur et le seter par défaut#}
+    {{ form_widget(form.author) }}
 <div class="center">
     <button class="publishLink">{{ button_label|default('Publier') }}</button>
 </div>

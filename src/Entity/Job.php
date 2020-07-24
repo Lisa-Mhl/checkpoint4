@@ -52,6 +52,17 @@ class Job
      */
     private $skills;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="jobs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $company;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +148,30 @@ class Job
     public function setSkills(?string $skills): self
     {
         $this->skills = $skills;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function setCompany(string $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }

@@ -15,6 +15,7 @@ class JobType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
+            ->add('company')
             ->add('contract', ChoiceType::class,[
                 'choices' => [
                     'CDI' => 'CDI',
@@ -28,6 +29,7 @@ class JobType extends AbstractType
             ->add('link')
             ->add('experience')
             ->add('skills')
+            ->add('author')
         ;
     }
 
