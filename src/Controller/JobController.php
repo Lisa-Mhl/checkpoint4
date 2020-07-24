@@ -36,6 +36,8 @@ class JobController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $job->setAuthor($user);
             $entityManager->persist($job);
             $entityManager->flush();
 

@@ -8,10 +8,9 @@
 
         {{ form_start(form) }}
         <fieldset class="formFs">
-            {# HIDE AUTHOR AND SET IT BY DEFAULT AS RESOLVED #}
-            {{ form_label(form.author, 'Auteur') }}
-            {{ form_widget(form.author) }}
             <div class="hidden">
+                {{ form_label(form.author, 'Auteur') }}
+                {{ form_widget(form.author) }}
                 {{ form_label(form.resolved, 'Résolu') }}
                 {{ form_widget(form.resolved) }}
             </div>

@@ -16,10 +16,12 @@
     {{ form_widget(form.skills) }}
     {{ form_label(form.link, 'Lien vers l\'offre') }}
     {{ form_widget(form.link) }}
-    {{ form_label(form.author, 'Auteur') }} {#CACHER ET SETER PAR DEFAUT #}
-    {{ form_widget(form.author) }}
-<div class="center">
-    <button class="publishLink">{{ button_label|default('Publier') }}</button>
-</div>
+    <div class="hidden">
+        {{ form_label(form.author, 'Auteur') }}
+        {{ form_widget(form.author) }}
+    </div>
+    <div class="center">
+        <button class="publishLink">{{ button_label|default('Publier') }}</button>
+    </div>
 </fieldset>
 {{ form_end(form) }}
