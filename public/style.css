@@ -8,7 +8,7 @@ a:hover {
     color: #5eb5e0;
 }
 
-.top05{
+.top05 {
     margin-top: 0.5em;
 }
 
@@ -363,23 +363,55 @@ h3 {
         height: 500px;
     }
 
+    .formSoluce {
+        height: 350px;
+    }
+
     .articleDetCard {
         margin-top: 2rem;
         width: 50%;
     }
 
-    form{
+    form {
         color: #5eb5e0;
     }
 
-    .bugCtn{
+    .bugCtn {
         margin-top: 2.5em;
     }
 
-    .categoriesCtn{
+    .categoriesCtn {
         position: absolute;
         top: 70px;
         left: 15px;
+    }
+
+    .category {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .debugdetCard {
+        width: 80%;
+        border: none;
+    }
+
+    .username {
+        text-align: center;
+    }
+
+    .profilPicture {
+        margin-top: 1em;
+        border-radius: 100%;
+        width: 250px;
+        height: 250px;
+    }
+
+    .profileLinks{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 1.2em;
     }
 
 }

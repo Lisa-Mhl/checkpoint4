@@ -7,13 +7,16 @@
         <h1 class="mainTitle">Poster un bug</h1>
 
         {{ form_start(form) }}
-        <fieldset class="registerFs">
+        <fieldset class="formFs">
+            {# HIDE AUTHOR AND SET IT BY DEFAULT AS RESOLVED #}
             {{ form_label(form.author, 'Auteur') }}
             {{ form_widget(form.author) }}
             <div class="hidden">
                 {{ form_label(form.resolved, 'Résolu') }}
                 {{ form_widget(form.resolved) }}
             </div>
+            {{ form_label(form.category, 'Catégorie') }}
+            {{ form_widget(form.category) }}
             {{ form_label(form.title, 'Titre') }}
             {{ form_widget(form.title) }}
             {{ form_label(form.title, 'Description courte') }}

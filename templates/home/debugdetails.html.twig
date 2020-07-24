@@ -7,8 +7,9 @@
         <h1 class="mainTitle">WHOOPSY</h1>
         <h4 class="bugTitle text-center"> "{{ bug.title }}" <br><span
                     class="subtitle">publié par <br>{{ bug.author }}</span></h4>
-        <div class="articleCard">
-        {{ bug.content }}
+        <div class="center">
+        <div class="card debugdetCard">
+        <p class="card-body"> {{ bug.content }}</p>
         {% if bug.imgA %}
             <img class="card-img debugdetImg" src="{{ bug.imgA }}" alt="Image 1">
         {% endif %}
@@ -24,9 +25,6 @@
             <div class="card">
                 <p class="card-body">{{ comment.author }}<br>
                     {{ comment.comment }}</p>
-                {# {% if app.user is same as (comment.author) %}
-                     {% include '/bug/_delete_comment.html.twig' %}
-                 {% endif %}#}
             </div>
         {% endfor %}
 
@@ -34,7 +32,7 @@
             <div class="soluceForm">
                 {{ form_start(form) }}
                 {{ form_label(form.comment, 'Poster une solution') }}
-                {{ form_widget(form.comment) }}
+                {{ form_widget(form.comment, {'attr':{'class':'formSoluce'}}) }}
                 <button class="publishLink">{{ button_label|default('Envoyer') }}</button>
                 {{ form_end(form) }}
             </div>
@@ -51,6 +49,7 @@
         <a href="{{ path('debug') }}">Retour aux bugs</a>
     </div>
 
+    </div>
     </div>
 
 {% endblock %}

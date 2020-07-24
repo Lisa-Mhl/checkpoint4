@@ -29,6 +29,11 @@ class Category
      */
     private $bugs;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     public function __construct()
     {
         $this->bugs = new ArrayCollection();
