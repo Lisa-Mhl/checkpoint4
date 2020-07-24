@@ -4,4 +4,36 @@
 
 {% block body %}
     <h1 class="mainTitle">WORK</h1>
+
+    {% if app.user %}
+        {% for job in jobs %}
+            <h3>{{ job.title }}</h3> {{ job.contract }}
+            <p>{{ job.description }}</p>
+            {% if job.skills %}
+                <p>Compétences requises : {{ job.skills }}</p>
+            {% endif %}
+            {% if job.experience %}
+                <p>Expérience requise : {{ job.experience }} an(s)</p>
+            {% endif %}
+            <p>{{ job.salary }} € /mois</p>
+
+            {% if is_granted('ROLE_DEV') %}
+                <a target="_blank" href="{{ job.link }}">Postuler</a>
+            {% endif %}
+            {% if is_granted('ROLE_EMPLOYER') %}
+                <a href="{{ path('job_new') }}">Publier une offre</a>
+            {% endif %}
+        {% endfor %}
+
+    {% else %}
+        <p class="text-center">Veuillez vous connecter pour accéder à cette page
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </p>
+
+    {% endif %}
+
+
+
+
+
 {% endblock %}

@@ -91,6 +91,6 @@ class BugController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('bug_index');
+        return $this->redirectToRoute('debug');
     }
 }

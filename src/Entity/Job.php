@@ -42,6 +42,16 @@ class Job
      */
     private $link;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $experience;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $skills;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +113,30 @@ class Job
     public function setLink(string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getExperience(): ?int
+    {
+        return $this->experience;
+    }
+
+    public function setExperience(?int $experience): self
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    public function getSkills(): ?string
+    {
+        return $this->skills;
+    }
+
+    public function setSkills(?string $skills): self
+    {
+        $this->skills = $skills;
 
         return $this;
     }
