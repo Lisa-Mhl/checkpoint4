@@ -3,6 +3,18 @@ a {
     color: cornflowerblue;
 }
 
+body {
+    background-color: whitesmoke;
+}
+
+.cardHoverLink{
+    color: black;
+}
+
+.cardHoverLink:hover{
+    color: black;
+}
+
 a:hover {
     text-decoration: none;
     color: #5eb5e0;
@@ -237,6 +249,10 @@ h3 {
         height: 150px;
         width: 150px;
     }
+
+    footer {
+        display: none;
+    }
 }
 
 /************************************************* TAB VERSION *****************************************************/
@@ -294,9 +310,10 @@ h3 {
     }
 
     .card-title {
-        background-color: whitesmoke;
+        background-color: #02334b;;
         padding: 2rem;
         margin-bottom: 0;
+        color: whitesmoke;
     }
 
     .articleLink {
@@ -318,8 +335,23 @@ h3 {
 /************************************************* DESKTOP VERSION *****************************************************/
 @media only screen and (min-width: 1200px) {
 
+    /* HOME */
     .desktopNav a:hover {
         color: #5eb5e0;
+    }
+
+    .cover {
+        background-color: #02334b;
+        height: 300px;
+    }
+
+    .publishLink {
+        font-size: 1.3em;
+        border-radius: 15px;
+        width: 12%;
+        position: absolute;
+        top: 300px;
+        left: 44%;
     }
 
     .publishLink:hover {
@@ -328,13 +360,15 @@ h3 {
         border-color: black;
     }
 
-    .publishLink {
-        background-color: #b2b1b3;
-        border-color: #b2b1b3;
-        color: white;
-        width: 12%;
-        margin-top: 1em;
+    .articleCard:hover{
+        z-index: 2;
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1.1);
+        transition: all 200ms ease-in;
+        transform: scale(1.1);
     }
+
+
 
     .articleCtn {
         margin-top: 5em;
@@ -348,6 +382,7 @@ h3 {
     .articleCard {
         width: 700px;
         margin-bottom: 5em;
+        filter: drop-shadow(5px 10px 2px #ccc);
     }
 
     .articleImg {
@@ -447,15 +482,15 @@ h3 {
         color: #222222;
     }
 
-    .solved{
+    .solved {
         height: 350px;
     }
 
-    .imgA{
+    .imgA {
         height: 350px;
     }
 
-    .registerFs{
+    .registerFs {
         padding-top: 12em;
         padding-bottom: 12em;
         width: 50%;
@@ -463,9 +498,11 @@ h3 {
         margin-left: auto;
     }
 
-    .profileCtn{
+    .profileCtn {
         margin: 2rem auto 10rem;
         width: 50%;
     }
+
+
 
 }

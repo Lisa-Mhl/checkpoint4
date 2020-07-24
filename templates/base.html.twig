@@ -54,12 +54,14 @@
 
 <nav class="desktopNav">
     {% if app.user %}
+        <a href="{{ path('home') }}">WILD COMMUNITY</a>
         <a href="/">Accueil</a>
         <a href="{{ path('debug') }}">Débug Zone</a>
         <a href="{{ path('job') }}">Job Zone</a>
         <a href="{{ path('profile', {'id':app.user.username}) }}">Profil</a>
         <a href="{{ path('app_logout') }}">Se déconnecter</a>
     {% else %}
+        <a href="{{ path('home') }}">WILD COMMUNITY</a>
         <a href="{{ path('app_login') }}">Connexion</a>
     {% endif %}
 </nav>
