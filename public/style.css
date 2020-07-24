@@ -463,4 +463,9 @@ h3 {
         margin-left: auto;
     }
 
+    .profileCtn{
+        margin: 2rem auto 10rem;
+        width: 50%;
+    }
+
 }
