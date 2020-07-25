@@ -17,13 +17,13 @@
         <div class="categoriesCtn">
             <h4 class="text-white">Catégories :</h4>
             {% for category in categories %}
-                <p class="categories text-white">{{ category.name }} <br></p>
+                <a href="#{{ category.id }}" class="categories">{{ category.name }} <br></a>
             {% endfor %}
         </div>
 
         {% for category in categories %}
             <div class="bugCtn">
-            <h4 class="text-center">{{ category.name }}</h4>
+            <h4 id="{{ category.id }}" class="text-center">{{ category.name }}</h4>
 
             <div class="row">
                 {% for bug in category.bugs %}
