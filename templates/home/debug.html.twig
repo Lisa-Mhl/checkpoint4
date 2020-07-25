@@ -3,7 +3,9 @@
 {% block title %}Debug Zone{% endblock %}
 
 {% block body %}
-    <h1 class="mainTitle">WHOOPSY</h1>
+    <div class="cover center">
+        <img src="https://i.postimg.cc/wMHrwRwV/Whoopsie-3.png" alt="Home Cover">
+    </div>
 
     {% if app.user %}
         {% if is_granted('ROLE_DEV') %}
@@ -13,9 +15,9 @@
             <a href="{{ path('bug_index') }}">Index des bugs</a>
         {% endif %}
         <div class="categoriesCtn">
-            <h4>Catégories :</h4>
+            <h4 class="text-white">Catégories :</h4>
             {% for category in categories %}
-                <p class="categories">{{ category.name }} <br></p>
+                <p class="categories text-white">{{ category.name }} <br></p>
             {% endfor %}
         </div>
 
@@ -51,7 +53,6 @@
                                 {% endif %}
 
                             </div>
-                            <hr>
                         </div>
                     </div>
                 {% endfor %}

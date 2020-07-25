@@ -3,7 +3,9 @@
 {% block title %}Profile{% endblock %}
 
 {% block body %}
-    <h1 class="mainTitle">WILDER</h1>
+    <div class="cover center">
+        <img src="https://i.postimg.cc/hGmKXwh7/Wilder.png" alt="Home Cover">
+    </div>
     {% if app.user %}
         <h2 class="username">{{ app.user.username }}</h2>
         <div class="center">

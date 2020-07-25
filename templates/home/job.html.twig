@@ -3,7 +3,9 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <h1 class="mainTitle">WORK</h1>
+    <div class="cover center">
+        <img src="https://i.postimg.cc/WzkGCs41/Work.png" alt="Home Cover">
+    </div>
 
     {% if app.user %}
         {% if is_granted('ROLE_EMPLOYER') %}
@@ -11,7 +13,8 @@
         {% endif %}
         {% for job in jobs %}
             <div class="jobCtn">
-                <h3 class="card-title">{{ job.title }}</h3> <span class="bold">{{ job.contract }}</span> chez {{ job.company }}
+                <h3 class="card-title">{{ job.title }}</h3> <span class="bold">{{ job.contract }}</span>
+                chez {{ job.company }}
                 <p>{{ job.description }}</p>
                 {% if job.skills %}
                     <p>Compétences requises : {{ job.skills }}</p>
