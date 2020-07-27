@@ -64,7 +64,10 @@
         <a href="{{ path('profile', {'id':app.user.username}) }}">Profil</a>
         <a href="{{ path('app_logout') }}">Se déconnecter</a>
     {% else %}
-        <a href="{{ path('home') }}">WILD COMMUNITY</a>
+        <a href="{{ path('home') }}">
+            <img class="logo" src="https://i.postimg.cc/wxngLfq9/Screenshot-2020-07-25-Untitled-design.png"
+                 alt="Logo Wild Community">
+        </a>
         <a href="{{ path('app_login') }}">Connexion</a>
     {% endif %}
 </nav>

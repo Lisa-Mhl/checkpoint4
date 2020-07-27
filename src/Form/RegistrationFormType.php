@@ -45,11 +45,14 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('email')
-            ->add('job', ChoiceType::class, [
+            ->add('job')
+            ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'ROLE_DEV' => 'Développeur',
-                    'ROLE_EMPLOYER' => 'Recruteur',
-                ]
+                    'Développeur' => 'ROLES_DEV',
+                    'Recruteur' => 'ROLE_EMPLOYER',
+                ],
+                'required'  => true,
+                'multiple' => true
             ]);
     }
 
