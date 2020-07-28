@@ -520,6 +520,11 @@ h3 {
         justify-content: flex-start;
     }
 
+    .up {
+        height: 50px;
+        margin-bottom: 1em;
+    }
+
     .debugdetCard {
         width: 80%;
         border: none;
