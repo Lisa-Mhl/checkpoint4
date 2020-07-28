@@ -14,7 +14,7 @@
 
         {% for job in jobs %}
             <div class="jobCtn">
-                <h3 class="card-title">{{ job.title }} <br><span class="jobSubTitle">{{ job.contract }}
+                <h3 class="card-title mobileTitle">{{ job.title }} <br><span class="jobSubTitle">{{ job.contract }}
                     chez {{ job.company }}</span></h3>
                 <p class="card-body">{{ job.description }}
                     {% if job.skills %}

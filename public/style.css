@@ -59,8 +59,8 @@ h3 {
     #menuToggle {
         display: block;
         position: fixed;
-        top: 30px;
-        left: 1%;
+        top: 20px;
+        left: 2%;
         z-index: 1;
         -webkit-user-select: none;
         user-select: none;
@@ -176,17 +176,34 @@ h3 {
         margin-bottom: 0;
     }
 
+    .cover {
+        height: 10em;
+    }
+
     .publishLink {
-        display: flex;
-        justify-content: center;
+        text-align: center;
+        font-weight: bold;
+        color: cornflowerblue;
+        border-radius: 15px;
+        width: 50%;
+        position: absolute;
+        top: 100px;
+        left: 25%;
+        border: none;
+        background: whitesmoke;
+    }
+
+    .sendlink {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-weight: bold;
+        color: cornflowerblue;
+        border-radius: 15px;
+        width: 50%;
         border-style: solid;
         border-width: thin;
-        border-color: #5eb5e0;
-        background-color: whitesmoke;
-        color: #222222;
-        width: 45%;
-        margin: auto;
-        margin-bottom: 1em;
+        border-color: cornflowerblue;
+
     }
 
     .articleCard {
@@ -216,6 +233,20 @@ h3 {
         flex-direction: column;
     }
 
+    .categoriesCtn { /* TO DO  AJOUTER UN MENU DEROULANT  */
+        display: none;
+    }
+
+    .categoryName {
+        background-color: white;
+        color: cornflowerblue;
+    }
+
+    .up {
+        height: 50px;
+        margin-bottom: 1em;
+    }
+
     /* DEBUG DETAILS */
     .soluceTitle {
         text-align: center;
@@ -229,6 +260,33 @@ h3 {
     .debugdetImg {
         margin-top: 1rem;
         height: 300px;
+    }
+
+    .bugTitle {
+        background-color: #02334b;
+        color: whitesmoke;
+        font-weight: bold;
+
+    }
+
+    /* JOB */
+    .jobCtn {
+        width: 70%;
+        margin: 2rem auto 3rem;
+        background-color: white;
+    }
+
+    .jobBody {
+        padding-left: 1em;
+    }
+
+    .jobSubTitle {
+        font-size: large;
+    }
+
+    .mobileTitle {
+        background-color: #02334b;
+        color: whitesmoke;
     }
 
     /* REGISTER */
@@ -246,6 +304,7 @@ h3 {
     /* PROFILE */
     .username {
         text-align: center;
+        margin-bottom: 2rem;
     }
 
     .profilPicture {
@@ -256,6 +315,16 @@ h3 {
 
     footer {
         display: none;
+    }
+
+    .profileLinks {
+        position: absolute;
+        top: 32%;
+        left: 2%;
+    }
+
+    .employed{
+        margin-top: 2rem;
     }
 }
 
@@ -460,11 +529,6 @@ h3 {
     .solvedCtn {
         padding-top: 15em;
         padding-bottom: 16em;
-    }
-
-    .up {
-        height: 50px;
-        margin-bottom: 1em;
     }
 
     .username {
