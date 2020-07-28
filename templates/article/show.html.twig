@@ -18,11 +18,12 @@
                 <a href="{{ path('home') }}">Retour aux articles</a><br>
 
                 {% if app.user %}
-                {% if app.user is same as (article.author) %}
-                    <a href="{{ path('article_edit', {'id': article.id}) }}"> Modifier l'article</a>
+                    {% if app.user is same as (article.author) %}
+                        <a href="{{ path('article_edit', {'id': article.id}) }}"> Modifier l'article</a>
+                    {% endif %}
+
                 {% endif %}
             </div>
-            {% endif %}
         </div>
     </div>
 {% endblock %}

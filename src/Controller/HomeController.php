@@ -5,18 +5,22 @@ namespace App\Controller;
 use App\Entity\Bug;
 use App\Entity\CategoryBug;
 use App\Entity\Comment;
+use App\Entity\Job;
+use App\Entity\User;
 use App\Form\CommentType;
+use App\Form\ProfileType;
+use App\Form\SearchType;
 use App\Repository\ArticleRepository;
 use App\Repository\BugRepository;
 use App\Repository\CategoryBugRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
 use App\Repository\JobRepository;
-use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use App\Service\Searcher;
 
 
 class HomeController extends AbstractController

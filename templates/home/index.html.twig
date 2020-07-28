@@ -3,31 +3,35 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <h1 class="mainTitle">WHADUP</h1>
+    <div class="cover center">
+        <img src="https://i.postimg.cc/NFTDWzq6/1.png" alt="Home Cover">
+    </div>
 
     {% if app.user %}
         <a class="publishLink" href="{{ path('article_new') }}">Publier un article</a>
     {% endif %}
-    <div class="articleCtn">
+
         <div class="row">
             {% for article in articles %}
                 <div class="col-lg-5 col-md-6 col-sm-7">
-                    <article class="card articleCard">
-                        <h3 class="card-title text-center bold">{{ article.title }}</h3>
-                        {% if article.poster %}
-                            <img class="card-img articleImg" src="{{ article.poster }}" alt="article poster">
-                        {% endif %}
-                        <p class="card-body"><span class="bold">Article publié par : {{ article.author }}</span>
-                            <br><br>
-                            {{ article.description }}</p>
-                        <a href="{{ path('article_show', {'id':article.id}) }}" class="card-link text-center">Lire
-                            l'article
-                        </a>
-                    </article>
+                    <a class="cardHoverLink" href="{{ path('article_show', {'id':article.id}) }}">
+                        <article class="card articleCard">
+                            <h3 class="card-title text-center bold">{{ article.title }}</h3>
+                            {% if article.poster %}
+                                <img class="card-img articleImg" src="{{ article.poster }}" alt="article poster">
+                            {% endif %}
+                            <p class="card-body"><span class="bold">Article publié par : {{ article.author }}</span>
+                                <br><br>
+                                {{ article.description }}</p>
+                            <a href="{{ path('article_show', {'id':article.id}) }}" class="card-link text-center">Lire
+                                l'article
+                            </a>
+                        </article>
+                    </a>
                 </div>
             {% endfor %}
         </div>
-    </div>
+
 
 
 

@@ -21,7 +21,7 @@
             {{ form_label(form.title, 'Description courte') }}
             {{ form_widget(form.description) }}
             {{ form_label(form.content, 'Description détaillée') }}
-            {{ form_widget(form.content) }}
+            {{ form_widget(form.content, {'attr':{'class':'formSoluce'}}) }}
             {{ form_label(form.imgA, 'Image 1') }}
             {{ form_widget(form.imgA) }}
             {{ form_label(form.imgB, 'Image 2') }}
@@ -30,7 +30,9 @@
             {{ form_widget(form.imgC) }}
             {{ form_label(form.imgC, 'Stack') }}
             {{ form_widget(form.stack) }}
-            <button class="btn">{{ button_label|default('Publier') }}</button>
+            <div class="center">
+                <button class="sendlink">{{ button_label|default('Publier') }}</button>
+            </div>
         </fieldset>
         {{ form_end(form) }}
     {% else %}
