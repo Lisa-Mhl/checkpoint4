@@ -3,8 +3,9 @@
 {% block title %}Débug Zone{% endblock %}
 
 {% block body %}
+    <div class="cover center" id="debugzone">
+    </div>
     {% if app.user %}
-        <h1 class="mainTitle">WHOOPSY</h1>
         <h4 class="bugTitle text-center"> "{{ bug.title }}" <br><span
                     class="subtitle">publié par <br>{{ bug.author }}</span></h4>
         <div class="center">
@@ -34,7 +35,9 @@
                     {{ form_start(form) }}
                     {{ form_label(form.comment, 'Poster une solution') }}
                     {{ form_widget(form.comment, {'attr':{'class':'formSoluce'}}) }}
-                    <button class="publishLink">{{ button_label|default('Envoyer') }}</button>
+                    <div class="center">
+                        <button class="sendlink">{{ button_label|default('Envoyer') }}</button>
+                    </div>
                     {{ form_end(form) }}
                 </div>
             {% endif %}

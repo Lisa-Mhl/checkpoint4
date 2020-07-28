@@ -17,7 +17,7 @@ class ArticleType extends AbstractType
             ->add('content')
             ->add('link')
             ->add('description')
-            ->add('author') #RETIRER AUTHOR ET LE SETER AU MOMENT DU REGISTER
+            ->add('author')
         ;
     }
 

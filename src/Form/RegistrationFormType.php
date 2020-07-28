@@ -48,7 +48,7 @@ class RegistrationFormType extends AbstractType
             ->add('job')
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'Développeur' => 'ROLES_DEV',
+                    'Développeur' => 'ROLE_DEV',
                     'Recruteur' => 'ROLE_EMPLOYER',
                 ],
                 'required'  => true,

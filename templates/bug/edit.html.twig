@@ -5,6 +5,7 @@
 {% block body %}
     <h1 class="mainTitle">Passer en résolu</h1>
     {% if app.user is same as (bug.author) %}
+        <div class="solvedCtn">
         {{ form_start(form) }}
         <div class="hidden">
             {{ form_label(form.author, 'Auteur') }}
@@ -29,7 +30,7 @@
             {{ form_widget(form.resolved, {'label' : 'Résolu'}) }}
         </div>
         <div class="center">
-            <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+            <button class="sendlink">{{ button_label|default('Enregistrer') }}</button>
         </div>
         {{ form_end(form) }}
         <div class="center">
@@ -38,4 +39,5 @@
     {% else %}
         <p>Seuls les auteurs d'un bug peuvent le passer en résolu</p>
     {% endif %}
+    </div>
 {% endblock %}

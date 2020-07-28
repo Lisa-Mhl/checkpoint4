@@ -7,6 +7,7 @@
         <img src="https://i.postimg.cc/NfnT1x3Y/4.png" alt="Home Cover">
     </div>
     {% if app.user %}
+        {# TO DO : AJOUTER UN LIEN POUR EDITER PROFIL <a class="publishLink" href="{{ path('profile_edit', {'id': app.user}) }}">Editer le profile</a> #}
         <h2 class="username">{{ app.user.username }}</h2>
         <div class="center">
             {% if app.user.photo %}
@@ -14,33 +15,34 @@
             {% endif %}
         </div>
 
+
         <div class="profileLinks">
-        {% if app.user.linkedin %}
-            <a class="link" target="_blank" href="{{ app.user.linkedin }}">Linkedin</a> <br>
-        {% endif %}
-        {% if app.user.github %}
-            <a target="_blank" href="{{ app.user.github }}">Github</a> <br>
-        {% endif %}
-        {% if app.user.portfolio %}
-            <a target="_blank" href="{{ app.user.portfolio }}">Portfolio</a> <br>
-        {% endif %}
+            {% if app.user.linkedin %}
+                <a class="link" target="_blank" href="{{ app.user.linkedin }}">Linkedin</a> <br>
+            {% endif %}
+            {% if app.user.github %}
+                <a target="_blank" href="{{ app.user.github }}">Github</a> <br>
+            {% endif %}
+            {% if app.user.portfolio %}
+                <a target="_blank" href="{{ app.user.portfolio }}">Portfolio</a> <br>
+            {% endif %}
         </div>
         <div class="profileCtn">
             {% if app.user.employed == 1 %}
                 <p class="text-center">En poste : Oui</p>
-                {% elseif app.user.employed == 0 %}
-                    <p>En poste : Non</p>
+            {% elseif app.user.employed == 0 %}
+                <p>En poste : Non</p>
             {% endif %}
 
-        <div class="center">
-            {% if app.user.bio %}
-                <p>Bio : {{ app.user.bio }}</p>
-            {% endif %}
-        </div>
-        {% if app.user.email %}
-            <p>Email : <a href="mailto: {{ app.user.email }}">{{ app.user.email }}</a></p>
+            <div class="center">
+                {% if app.user.bio %}
+                    <p>Bio : {{ app.user.bio }}</p>
+                {% endif %}
+            </div>
+            {% if app.user.email %}
+                <p>Email : <a href="mailto: {{ app.user.email }}">{{ app.user.email }}</a></p>
 
-        {% endif %}
+            {% endif %}
         </div>
     {% else %}
         <p class="text-center">Veuillez vous connecter pour accéder à cette page
