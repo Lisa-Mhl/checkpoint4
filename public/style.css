@@ -508,6 +508,7 @@ h3 {
         width: 650px;
         margin-bottom: 5em;
         filter: drop-shadow(5px 10px 2px #ccc);
+        transition: 200ms;
     }
 
     .articleImg {
