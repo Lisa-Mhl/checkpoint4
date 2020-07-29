@@ -24,8 +24,12 @@
         <h3 class="soluceTitle">SOLUCES</h3>
         {% for comment in bug.comments %}
             <div class="card">
+                <span class="name">
+                {% if comment.author.photo %}
+                    <img class="profilePix" src="{{ comment.author.photo }}" alt="Photo de Profil">
+                {% endif %}
                 <p class="card-body">{{ comment.author }}<br>
-                    {{ comment.comment }}</p>
+                    {{ comment.comment }}</p></span>
             </div>
         {% endfor %}
 
